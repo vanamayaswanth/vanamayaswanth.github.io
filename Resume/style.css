@@ -768,22 +768,41 @@ p {
 	  height: 40vw;
 	  max-height: 350px;
 	  padding: 10px;
-	  border-radius: 50px; 
+	  padding-right:0px;
+	  border-radius: 50px 0px 0px 50px; 
   }
   .card-text {
 	  padding: 10px;
+	  padding-left: 0px;
 	  width: 50%;
 	  height: 100%;
 	  text-align: center;
 	  font-size: 2.5rem;
-	  color: white;
+	  color: inherit;
+	}
+	.icon-cards__item:nth-child(1) .card-con {
+		background: #000000ee;
+	}
+	.icon-cards__item:nth-child(2) .card-con{
+		background: #000000ee;
+	}
+	.icon-cards__item:nth-child(3) .card-con{
+		background: #131212df;
+	}
+	.icon-cards__item:nth-child(1) .card-con h1,p{
+		color: white; 
+	}
+	.icon-cards__item:nth-child(2) .card-con{
+		color: white;
+	}
+	.icon-cards__item:nth-child(3) .card-con{
+		color: white;
 	}
 	.card-text .card-con{
-	  border-radius:50px;
-	  /* background-color: rgba(150, 150, 150, 0.925);  You Can Change  the text color here as required */
-	  height: 100%
+		border-radius: 0px 50px 50px 0px; 
+	  height: 100%;
   }
-  
+	
   @-webkit-keyframes carousel {
 	0%, 17.5% {
 	  transform: translateZ(-35vw) rotateY(0);
