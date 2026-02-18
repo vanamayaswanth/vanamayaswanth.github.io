@@ -36,7 +36,7 @@ export function StickyNav() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-20 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[8vw] transition-all duration-500 ${
         scrolled ? "py-4 bg-background/80 backdrop-blur-md" : "py-8 bg-transparent"
       }`}
       initial={{ y: -100, opacity: 0 }}
@@ -57,7 +57,7 @@ export function StickyNav() {
             key={link.href}
             href={link.href}
             data-hover
-            className={`relative font-mono text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
+            className={`relative font-mono text-[12px] uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${
               activeSection === link.href.replace("#", "")
                 ? "text-primary"
                 : "text-muted-foreground hover:text-foreground"
@@ -78,7 +78,7 @@ export function StickyNav() {
       <a
         href="#contact"
         data-hover
-        className="font-mono text-xs tracking-[0.2em] uppercase text-muted-foreground transition-colors duration-300 hover:text-primary"
+        className="font-mono text-[12px] uppercase tracking-[0.2em] font-medium text-muted-foreground transition-colors duration-300 hover:text-primary"
       >
         Get in touch
       </a>

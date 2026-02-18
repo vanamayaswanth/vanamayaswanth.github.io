@@ -10,14 +10,14 @@ export function AuthoritySection() {
   const credInView = useInView(credRef, { once: true, margin: "-10%" })
 
   return (
-    <section id="authority" className="px-6 md:px-12 lg:px-20 py-24 md:py-40">
+    <section id="authority" className="px-[8vw] py-24">
       {/* Section header */}
       <div className="mb-16 md:mb-24">
         <FadeUp>
-          <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary block mb-4">
+          <span className="font-mono text-[12px] uppercase tracking-[0.3em] font-medium text-primary block mb-4">
             03 / Authority
           </span>
-          <h2 className="font-sans text-3xl md:text-5xl lg:text-6xl font-[900] text-foreground tracking-tight">
+          <h2 className="font-sans text-3xl md:text-5xl lg:text-6xl font-[900] text-foreground tracking-tighter">
             Publications
           </h2>
         </FadeUp>
@@ -35,10 +35,10 @@ export function AuthoritySection() {
               <div className="flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-primary/10 mb-8">
                 <BookOpen className="w-8 h-8 md:w-10 md:h-10 text-primary" />
               </div>
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground block mb-2">
+              <span className="font-mono text-[12px] uppercase tracking-[0.3em] font-medium text-muted-foreground block mb-2">
                 Published Author
               </span>
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block">
+              <span className="font-mono text-[12px] uppercase tracking-[0.2em] font-medium text-muted-foreground block">
                 Educational Literature
               </span>
             </div>
@@ -48,11 +48,11 @@ export function AuthoritySection() {
               <StaggeredText
                 text="Data Science for Kids"
                 as="h3"
-                className="font-sans text-2xl md:text-4xl lg:text-5xl font-[900] text-foreground tracking-tight leading-tight text-balance"
+                className="font-sans text-2xl md:text-4xl lg:text-5xl font-[900] text-foreground tracking-tighter leading-tight text-balance"
                 delay={0.3}
                 staggerDelay={0.06}
               />
-              <p className="mt-6 md:mt-8 font-mono text-sm md:text-base leading-relaxed text-muted-foreground max-w-2xl">
+              <p className="mt-6 md:mt-8 font-mono text-[1.125rem] leading-relaxed text-muted-foreground max-w-2xl">
                 Authored a comprehensive guide breaking down complex data science
                 concepts into intuitive, engaging lessons for young minds. Bridging
                 the gap between cutting-edge AI/ML and the next generation of
@@ -63,7 +63,7 @@ export function AuthoritySection() {
                 <a
                   href="#"
                   data-hover
-                  className="inline-flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase text-foreground transition-colors duration-300 hover:text-primary"
+                  className="inline-flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.2em] font-medium text-foreground transition-colors duration-300 hover:text-primary"
                 >
                   Read More
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -95,7 +95,7 @@ export function AuthoritySection() {
             <span className="font-sans text-3xl md:text-5xl font-[900] text-primary block mb-3">
               {item.number}
             </span>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+            <span className="font-mono text-[12px] uppercase tracking-[0.3em] font-medium text-muted-foreground">
               {item.label}
             </span>
           </motion.div>

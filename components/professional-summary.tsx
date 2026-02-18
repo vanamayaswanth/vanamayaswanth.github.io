@@ -4,10 +4,10 @@ import { StaggeredText, FadeUp } from "@/components/staggered-text"
 
 export function ProfessionalSummary() {
   return (
-    <section className="px-6 md:px-12 lg:px-20 py-24 md:py-40">
+    <section className="px-[8vw] py-24">
       <div className="flex flex-col items-center justify-center min-h-[50vh]">
         <FadeUp delay={0}>
-          <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary block mb-10 md:mb-14 text-center">
+          <span className="font-mono text-[12px] uppercase tracking-[0.3em] font-medium text-primary block mb-10 md:mb-14 text-center">
             The DNA
           </span>
         </FadeUp>
@@ -16,7 +16,7 @@ export function ProfessionalSummary() {
           <StaggeredText
             text="Specializing in Agentic AI, IDP, and LLMOps with a track record of 5+ production-grade modules."
             as="p"
-            className="font-sans text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight tracking-tight text-balance"
+            className="font-sans text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight tracking-tighter text-balance"
             delay={0.15}
             staggerDelay={0.04}
           />
@@ -33,7 +33,7 @@ export function ProfessionalSummary() {
                 <span className="font-sans text-xl md:text-2xl font-bold text-primary block">
                   {item.value}
                 </span>
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+                <span className="font-mono text-[12px] uppercase tracking-[0.2em] font-medium text-muted-foreground">
                   {item.label}
                 </span>
               </div>

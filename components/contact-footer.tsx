@@ -16,18 +16,18 @@ export function ContactFooter() {
   const linksInView = useInView(linksRef, { once: true, margin: "-10%" })
 
   return (
-    <section id="contact" className="px-6 md:px-12 lg:px-20 py-24 md:py-40">
+    <section id="contact" className="px-[8vw] py-24">
       {/* Section header */}
       <div className="mb-16 md:mb-24">
         <FadeUp>
-          <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary block mb-4">
+          <span className="font-mono text-[12px] uppercase tracking-[0.3em] font-medium text-primary block mb-4">
             04 / Connect
           </span>
         </FadeUp>
         <StaggeredText
           text={"Let's architect something extraordinary."}
           as="h2"
-          className="font-sans text-3xl md:text-5xl lg:text-7xl font-[900] text-foreground tracking-tight leading-tight max-w-4xl text-balance"
+          className="font-sans text-3xl md:text-5xl lg:text-7xl font-[900] text-foreground tracking-tighter leading-tight max-w-4xl text-balance"
           delay={0.1}
           staggerDelay={0.05}
         />
@@ -49,7 +49,7 @@ export function ContactFooter() {
               delay: i * 0.1,
             }}
           >
-            <span className="font-sans text-lg md:text-2xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
+            <span className="font-sans text-[1.125rem] md:text-2xl font-bold text-foreground tracking-tighter group-hover:text-primary transition-colors duration-300">
               {link.label}
             </span>
             <ArrowUpRight className="w-5 h-5 text-muted-foreground transition-all duration-300 group-hover:text-primary group-hover:-translate-y-1 group-hover:translate-x-1" />
@@ -60,10 +60,10 @@ export function ContactFooter() {
       {/* Footer */}
       <FadeUp className="mt-24 md:mt-40" delay={0.3}>
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+          <span className="font-mono text-[12px] uppercase tracking-[0.3em] font-medium text-muted-foreground">
             Vanama Yaswanth / 2026
           </span>
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+          <span className="font-mono text-[12px] uppercase tracking-[0.3em] font-medium text-muted-foreground">
             Architecting Agentic Intelligence
           </span>
         </div>
