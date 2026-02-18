@@ -7,10 +7,17 @@ export function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null)
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
-  const positionRef = useRef({ x: 0, y: 0 })
-  const targetRef = useRef({ x: 0, y: 0 })
+  const [isTouchDevice, setIsTouchDevice] = useState(true)
+  const positionRef = useRef({ x: -100, y: -100 })
+  const targetRef = useRef({ x: -100, y: -100 })
+  const rafRef = useRef<number>(0)
 
   useEffect(() => {
+    // Check for touch device
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0
+    setIsTouchDevice(isTouch)
+    if (isTouch) return
+
     const handleMouseMove = (e: MouseEvent) => {
       targetRef.current = { x: e.clientX, y: e.clientY }
       if (!isVisible) setIsVisible(true)
@@ -19,8 +26,10 @@ export function CustomCursor() {
     const handleMouseEnter = () => setIsVisible(true)
     const handleMouseLeave = () => setIsVisible(false)
 
-    const checkHoverState = () => {
-      const elements = document.querySelectorAll("a, button, [role='button'], [data-hover]")
+    const attachHoverListeners = () => {
+      const elements = document.querySelectorAll(
+        "a, button, [role='button'], [data-hover]"
+      )
       elements.forEach((el) => {
         el.addEventListener("mouseenter", () => setIsHovering(true))
         el.addEventListener("mouseleave", () => setIsHovering(false))
@@ -28,26 +37,28 @@ export function CustomCursor() {
     }
 
     const animate = () => {
-      positionRef.current.x += (targetRef.current.x - positionRef.current.x) * 0.15
-      positionRef.current.y += (targetRef.current.y - positionRef.current.y) * 0.15
+      positionRef.current.x +=
+        (targetRef.current.x - positionRef.current.x) * 0.12
+      positionRef.current.y +=
+        (targetRef.current.y - positionRef.current.y) * 0.12
 
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${positionRef.current.x - 24}px, ${positionRef.current.y - 24}px)`
+        cursorRef.current.style.transform = `translate3d(${positionRef.current.x - 28}px, ${positionRef.current.y - 28}px, 0)`
       }
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${targetRef.current.x - 4}px, ${targetRef.current.y - 4}px)`
+        dotRef.current.style.transform = `translate3d(${targetRef.current.x - 4}px, ${targetRef.current.y - 4}px, 0)`
       }
 
-      requestAnimationFrame(animate)
+      rafRef.current = requestAnimationFrame(animate)
     }
 
     document.addEventListener("mousemove", handleMouseMove)
     document.addEventListener("mouseenter", handleMouseEnter)
     document.addEventListener("mouseleave", handleMouseLeave)
-    checkHoverState()
-    animate()
+    attachHoverListeners()
+    rafRef.current = requestAnimationFrame(animate)
 
-    const observer = new MutationObserver(checkHoverState)
+    const observer = new MutationObserver(attachHoverListeners)
     observer.observe(document.body, { childList: true, subtree: true })
 
     return () => {
@@ -55,39 +66,39 @@ export function CustomCursor() {
       document.removeEventListener("mouseenter", handleMouseEnter)
       document.removeEventListener("mouseleave", handleMouseLeave)
       observer.disconnect()
+      cancelAnimationFrame(rafRef.current)
     }
   }, [isVisible])
 
-  // Don't render on touch devices
-  if (typeof window !== "undefined" && "ontouchstart" in window) {
-    return null
-  }
+  if (isTouchDevice) return null
 
   return (
     <>
-      {/* Outer ring */}
+      {/* Outer hollow ring */}
       <div
         ref={cursorRef}
         className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block"
         style={{
           opacity: isVisible ? 1 : 0,
           transition: "opacity 0.3s ease",
+          willChange: "transform",
         }}
       >
         <div
-          className="flex items-center justify-center"
           style={{
-            width: 48,
-            height: 48,
+            width: 56,
+            height: 56,
             borderRadius: "50%",
-            border: isHovering ? "2px solid #F4793A" : "2px solid #FFFFFF",
-            backgroundColor: isHovering ? "rgba(244, 121, 58, 0.1)" : "transparent",
-            transform: isHovering ? "scale(1.5)" : "scale(1)",
-            transition: "transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease",
-            mixBlendMode: isHovering ? "difference" : "normal",
+            border: isHovering ? "2px solid #F4793A" : "1.5px solid rgba(255,255,255,0.6)",
+            backgroundColor: "transparent",
+            transform: isHovering ? "scale(1.6)" : "scale(1)",
+            transition:
+              "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease",
+            mixBlendMode: "difference",
           }}
         />
       </div>
+
       {/* Inner dot */}
       <div
         ref={dotRef}
@@ -95,6 +106,7 @@ export function CustomCursor() {
         style={{
           opacity: isVisible ? 1 : 0,
           transition: "opacity 0.3s ease",
+          willChange: "transform",
         }}
       >
         <div
@@ -103,7 +115,8 @@ export function CustomCursor() {
             height: 8,
             borderRadius: "50%",
             backgroundColor: isHovering ? "#F4793A" : "#FFFFFF",
-            transition: "background-color 0.3s ease",
+            transition: "background-color 0.3s ease, transform 0.3s ease",
+            transform: isHovering ? "scale(0)" : "scale(1)",
           }}
         />
       </div>

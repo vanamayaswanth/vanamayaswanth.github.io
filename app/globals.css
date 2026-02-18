@@ -108,3 +108,15 @@ html {
   background: #F4793A;
   color: #000000;
 }
+
+/* Content sits above WebGL grain layer */
+body > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Scroll down keyframe animation */
+@keyframes scrollDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(300%); }
+}

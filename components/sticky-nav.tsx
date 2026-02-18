@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
 const navLinks = [
   { label: "Work", href: "#work" },
@@ -17,7 +18,7 @@ export function StickyNav() {
       setScrolled(window.scrollY > 100)
 
       const sections = ["work", "authority", "contact"]
-      for (const section of sections.reverse()) {
+      for (const section of [...sections].reverse()) {
         const el = document.getElementById(section)
         if (el) {
           const rect = el.getBoundingClientRect()
@@ -34,10 +35,13 @@ export function StickyNav() {
   }, [])
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 transition-all duration-500 ${
+    <motion.nav
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 lg:px-20 transition-all duration-500 ${
         scrolled ? "py-4 bg-background/80 backdrop-blur-md" : "py-8 bg-transparent"
       }`}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
     >
       <a
         href="#"
@@ -61,7 +65,11 @@ export function StickyNav() {
           >
             {link.label}
             {activeSection === link.href.replace("#", "") && (
-              <span className="absolute -bottom-1 left-0 w-full h-px bg-primary" />
+              <motion.span
+                className="absolute -bottom-1 left-0 w-full h-px bg-primary"
+                layoutId="nav-underline"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
             )}
           </a>
         ))}
@@ -74,6 +82,6 @@ export function StickyNav() {
       >
         Get in touch
       </a>
-    </nav>
+    </motion.nav>
   )
 }
