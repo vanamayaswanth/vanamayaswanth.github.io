@@ -1,0 +1,26 @@
+# v0 runtime files (should only exist in preview, not in git)
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+
+# Common ignores
+node_modules/
+.next/
+.env*.local
+.DS_Store
+
+# User requested ignores
+.agent/
+.claude/
+.cursor/
+.vscode/
+.idea/
+.cursorrules
+.windsurfrules
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+my_expeation.md
+Vanama_Yaswanth_GenAI_LLM.pdf
+
+.md

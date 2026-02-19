@@ -1,0 +1,15 @@
+1:"$Sreact.fragment"
+2:I[40926,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"PageLoader"]
+3:I[49024,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"GrainOverlay"]
+4:I[76092,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"CustomCursor"]
+5:I[61689,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"StickyNav"]
+6:I[98924,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"HeroSection"]
+7:I[22078,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"SkillsSection"]
+8:I[19681,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"ProfessionalSummary"]
+9:I[83435,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"HorizontalScrollProjects"]
+a:I[82465,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"AuthoritySection"]
+b:I[50536,["/_next/static/chunks/cd84e8603daa757a.js","/_next/static/chunks/50ec4902901948c8.js"],"ContactFooter"]
+c:I[35417,["/_next/static/chunks/7dfeab42587bcc0e.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+0:{"buildId":"vebMm4kTlwxVzAVZ0vWtG","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"relative min-h-screen bg-black text-white","children":[["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","$L6",null,{}],["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{}],["$","$Lb",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/50ec4902901948c8.js","async":true}]],["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]]}],"loading":null,"isPartial":false}
+e:null
