@@ -93,10 +93,10 @@ export function ContactFooter() {
         transition={{ duration: 1, delay: 0.5 }}
       >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-white/[0.04] pt-10">
-          <span className="font-mono text-[10px] uppercase tracking-[0.5em] font-medium text-white/15">
-            Vanama Yaswanth © 2024
+          <span className="font-mono text-[10px] uppercase tracking-[0.5em] font-medium text-white/50">
+            Vanama Yaswanth © {new Date().getFullYear()}
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.5em] font-medium text-white/15">
+          <span className="font-mono text-[10px] uppercase tracking-[0.5em] font-medium text-white/50">
             GenAI/LLM Engineer — Bengaluru
           </span>
         </div>
