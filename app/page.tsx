@@ -3,7 +3,7 @@ import { StickyNav } from "@/components/sticky-nav"
 import { HeroSection } from "@/components/hero-section"
 import { SkillsSection } from "@/components/skills-section"
 import { ProfessionalSummary } from "@/components/professional-summary"
-import { HorizontalScrollProjects } from "@/components/horizontal-scroll"
+import { NeuralGrid } from "@/components/neural-grid/neural-grid" // Updated Import
 import { AuthoritySection } from "@/components/authority-section"
 import { ContactFooter } from "@/components/contact-footer"
 import { GrainOverlay } from "@/components/grain-overlay"
@@ -19,7 +19,7 @@ export default function Home() {
       <HeroSection />
       <SkillsSection />
       <ProfessionalSummary />
-      <HorizontalScrollProjects />
+      <NeuralGrid /> {/* Updated Component */}
       <AuthoritySection />
       <ContactFooter />
     </main>
