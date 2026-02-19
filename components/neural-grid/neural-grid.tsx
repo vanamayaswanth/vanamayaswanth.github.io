@@ -2,54 +2,54 @@
 
 import { NeuralCard, ProjectNode } from "./neural-card"
 
-// Sample Data - This would typically come from a CMS or props
+// Real Data from Resume (Vanama Yaswanth)
 const PROJECTS: ProjectNode[] = [
     {
         id: "001",
-        title: "Intelligent Doc Processing",
-        description: "Enterprise-grade IDP system processing 50k+ documents daily with multi-modal LLM pipelines and HITL verification workflows.",
+        title: "Self-Correcting IDP System",
+        description: "Architected a recursive multi-agent loop for Intelligent Document Processing. Models autonomously critique extraction results and refine prompts based on confidence scores, boosting accuracy by 35%.",
         category: "GenAI",
         link: "#",
         metrics: {
-            latency: "450ms",
-            accuracy: "99.8%",
-            stack: ["Python", "LangChain", "AWS Textract"]
+            latency: "650ms",
+            accuracy: "99.2%",
+            stack: ["LangGraph", "Jinja2", "AWS Bedrock"]
         }
     },
     {
         id: "002",
-        title: "Multi-Agent Orchestrator",
-        description: "Autonomous agent swarm architecture for complex task decomposition and parallel execution using CrewAI patterns.",
-        category: "System",
+        title: "Secure PII Redaction Pipeline",
+        description: "Enterprise-grade redaction engine for Healthcare & Insurance. Built end-to-end masking modules ensuring 100% data privacy compliance before LLM processing (POC to Production).",
+        category: "Infrastructure",
         link: "#",
         metrics: {
-            latency: "1.2s",
-            accuracy: "Self-Correcting",
-            stack: ["Rust", "OpenAI", "Kafka"]
+            latency: "<20ms",
+            accuracy: "100% Compliant",
+            stack: ["Presidio", "Docker", "FastAPI"]
         }
     },
     {
         id: "003",
-        title: "PII Redaction Engine",
-        description: "Zero-trust PII detection and redaction layer processing real-time chat streams with <20ms overhead.",
-        category: "Infrastructure",
+        title: "Agentic Customer Intent System",
+        description: "Engineered a 'Reason & Action' agent swarm using Function Calling to autonomously identify customer intent. Independently owned logic design, improving system action accuracy by 40%.",
+        category: "System",
         link: "#",
         metrics: {
-            latency: "18ms",
-            accuracy: "100% Compliance",
-            stack: ["Go", "Presidio", "Redis"]
+            latency: "1.2s",
+            accuracy: "92% Success",
+            stack: ["OpenAI", "Function Calling", "Vector DB"]
         }
     },
     {
         id: "004",
-        title: "Knowledge Graph RAG",
-        description: "Advanced RAG implementation utilizing GraphRAG for complex query reasoning over unstructured enterprise data.",
+        title: "Optimized Enterprise RAG",
+        description: "High-performance RAG architecture integrating Semantic Caching (Redis) and Vector Databases. Achieved 92% retrieval accuracy while minimizing inference latency on AWS SageMaker.",
         category: "GenAI",
         link: "#",
         metrics: {
-            latency: "800ms",
+            latency: "120ms",
             accuracy: "High Recall",
-            stack: ["Neo4j", "LlamaIndex", "CUDA"]
+            stack: ["Redis", "Pinecone", "SageMaker"]
         }
     }
 ]
