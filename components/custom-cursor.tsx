@@ -98,7 +98,54 @@ export function CustomCursor() {
     }
   }, [isVisible, handleHoverEnter, handleHoverLeave, isClicking])
 
-  if (isTouchDevice) return null
+  // Handle click animations (pulses)
+  const [pulses, setPulses] = useState<{ id: number; x: number; y: number }[]>([])
+
+  useEffect(() => {
+    const onPointerDown = (e: MouseEvent | TouchEvent) => {
+      let x, y
+      if ((e as TouchEvent).touches) {
+        x = (e as TouchEvent).touches[0].clientX
+        y = (e as TouchEvent).touches[0].clientY
+      } else {
+        x = (e as MouseEvent).clientX
+        y = (e as MouseEvent).clientY
+      }
+
+      const id = Date.now()
+      setPulses((prev) => [...prev, { id, x, y }])
+
+      // Cleanup pulse after animation
+      setTimeout(() => {
+        setPulses((prev) => prev.filter((p) => p.id !== id))
+      }, 1000)
+    }
+
+    window.addEventListener("mousedown", onPointerDown)
+    window.addEventListener("touchstart", onPointerDown)
+
+    return () => {
+      window.removeEventListener("mousedown", onPointerDown)
+      window.removeEventListener("touchstart", onPointerDown)
+    }
+  }, [])
+
+  // On touch devices, ONLY show the pulses, not the cursor
+  if (isTouchDevice) {
+    return (
+      <>
+        {pulses.map((pulse) => (
+          <div
+            key={pulse.id}
+            className="pointer-events-none fixed z-[10002] -translate-x-1/2 -translate-y-1/2 will-change-transform"
+            style={{ left: pulse.x, top: pulse.y }}
+          >
+            <div className="w-8 h-8 rounded-full border border-[#F4793A] animate-ping opacity-75" />
+          </div>
+        ))}
+      </>
+    )
+  }
 
   return (
     <>
@@ -183,6 +230,17 @@ export function CustomCursor() {
           ))}
         </div>
       )}
+
+      {/* Render pulses on desktop too if desired */}
+      {pulses.map((pulse) => (
+        <div
+          key={pulse.id}
+          className="pointer-events-none fixed z-[10002] -translate-x-1/2 -translate-y-1/2 will-change-transform"
+          style={{ left: pulse.x, top: pulse.y }}
+        >
+          <div className="w-8 h-8 rounded-full border border-[#F4793A] animate-ping opacity-75" />
+        </div>
+      ))}
     </>
   )
 }
